@@ -96,7 +96,12 @@ The .dd file is a standard .txt file who is only the extension changed. To clear
 
 Authors:
 lucki1000
-      
+
+Older Autors:  
+ossiozac
+dee-oh-double-gee
+theresalu
+    
 Credits to Original Authors:
 DroidDucky by Andrej Budincevic (https://github.com/anbud/DroidDucky)
 hardpass by girst (https://github.com/girst/hardpass)
