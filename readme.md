@@ -39,11 +39,11 @@ These instructions will help you setup and install your own RubberDucky
 
 3) Version 1.0:
     ``` bash
-    wget https://raw.githubusercontent.com/lucki1000/Raspberry-Pi-Zero-Rubber-Ducky-Duckberry-Pi/master/duckysetup.sh
+    wget https://raw.githubusercontent.com/lucki1000/Raspberry-Rubber-Ducky-Pi/master/duckysetup.sh
     ```
    or for oneliners (skip 4 and 5):
     ``` bash
-    wget https://raw.githubusercontent.com/lucki1000/Raspberry-Pi-Zero-Rubber-Ducky-Duckberry-Pi/master/duckysetup.sh && chmod +x duckysetup.sh && sudo ./duckysetup.sh
+    wget https://raw.githubusercontent.com/lucki1000/Raspberry-Rubber-Ducky-Pi/master/duckysetup.sh && chmod +x duckysetup.sh && sudo ./duckysetup.sh
 4) Make the script executable
     ``` bash
     chmod +x duckysetup.sh
