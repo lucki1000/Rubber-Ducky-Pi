@@ -8,7 +8,7 @@ read -p "Enter Keyboard layout supported layouts: `echo $'\n de \n us \n '`" lay
 
 apt update
 apt upgrade -y
-apt install -y rpi-update
+apt install -y rpi-update vim
 echo "y" | rpi-update
 
 ## dwc2 drivers
