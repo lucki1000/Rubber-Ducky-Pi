@@ -26,7 +26,7 @@ fi
 
 if [[ $layout == "us" ]]
 then
-	gcc hid-gadget-test.c -o gcc hid-gadget-test
+	gcc hid-gadget-test.c -o hid-gadget-test
 fi
 
 ##Make all nessisary files executeable
