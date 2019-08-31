@@ -79,7 +79,7 @@ if [[ $layout == "us" ]]
 then
 	echo "First after a reboot your Pi can working as rubber ducky\n"
 	read -p "Did you will restart your Pi?\n `echo $'\n yes \n no \n '`" choice
-	if [[ $choice == "no" ]]
+	if [[ $choice == "yes" ]]
 	then
 		sudo reboot
 	fi
