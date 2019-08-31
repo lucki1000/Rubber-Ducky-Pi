@@ -64,3 +64,23 @@ DELAY 50
 STRING www.youtube.com/watch?v=dQw4w9WgXcQ
 ENTER
 EOF
+
+if [[ $layout == "de" ]]
+then
+	echo "Erst nach einem Neustart funktioniert dein Pi als Rubber-Ducky\n"
+	read -p "Willst du dein Pi Neustarten?\n `echo $'\n ja \n nein \n '`" choice
+	if [[ $choice == "ja" ]]
+	then
+		sudo reboot
+	fi
+fi
+
+if [[ $layout == "en" ]]
+then
+	echo "First after a reboot your Pi can working as rubber ducky\n"
+	read -p "Did you will restart your Pi?\n `echo $'\n yes \n no \n '`" choice
+	if [[ $choice == "no" ]]
+	then
+		sudo reboot
+	fi
+fi
