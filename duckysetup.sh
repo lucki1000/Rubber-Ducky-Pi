@@ -8,8 +8,8 @@ read -p "Enter Keyboard layout supported layouts: `echo $'\n de \n us \n '`" lay
 
 apt update
 apt upgrade -y
-apt install rpi-update
-rpi-update
+apt install -y rpi-update
+echo "y" | rpi-update
 
 ## dwc2 drivers
 sed -i -e "\$adtoverlay=dwc2" /boot/config.txt
