@@ -11,8 +11,6 @@ link:#getting-started[Getting Started]
 
 link:#installation[Installation]
 
-link:#using-rubberducky[Using Rubberducky]
-
 link:#summary[Summary]
 
 link:#duckyscript[Duckyscript]
@@ -95,7 +93,6 @@ chmod +x duckysetup.sh
 sudo ./duckysetup.sh
 ----
 +
-[#using-rubberducky]
 === Using RubberDucky
 6.  Turn off the PI, plug it into the target host machine via USB cable in the
 peripheral micro USB port, NOT THE POWER PORT. A power cord is not required as
