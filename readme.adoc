@@ -3,16 +3,38 @@
 
 Version 1.0 Rubber Ducky USB HID!
 
-[[info]]
-= Info:
+== **Content:**
 
-[[german-keyboard-supports-actually-all-the-key-in-the-result]]
-== German Keyboard supports actually all the key in the Result:
+link:#info[Info]
+
+link:#getting-started[Getting Started]
+
+link:#installation[Installation]
+
+link:#using-rubberducky[Using Rubberducky]
+
+link:#summary[Summary]
+
+link:#duckyscript[Duckyscript]
+
+link:#credits[credits]
+
+link:#mit-license[MIT License]
+
+[#info]
+== Info:
+
+==== German Keyboard supports actually all the key in the Result:
+
+```
+expected: !"§$%&/()=?#@ _ . , ; : \ ` ß { [ ] } + * ~ ' - < > | ^ ° 
+result  : !"§$%&/()=?#@ _ . , ; : \ ` ß { [ ] } + * ~ ' - < > | ^ °
+```
 
 Special Thanks to
 https://electronics.stackexchange.com/users/135565/ephemeral[Ephemeral]
 
-[[introduction]]
+[#Introduction]
 == Introduction
 
 ....
@@ -38,12 +60,12 @@ Since it is recognised as a standard keyboard, this tool is compatible with
 Windows, Mac OS, Linux, Android, PlayStation 4, and anything that supports a USB
 keyboard.
 
-[[getting-started]]
+[#getting-started]
 == Getting Started
 
 These instructions will help you setup and install your own RubberDucky
 
-[[installation]]
+[#installation]
 === Installation
 
 1.  Download the latest ISO for
@@ -73,7 +95,7 @@ chmod +x duckysetup.sh
 sudo ./duckysetup.sh
 ----
 +
-[[using-rubberducky]]
+[#using-rubberducky]
 === Using RubberDucky
 6.  Turn off the PI, plug it into the target host machine via USB cable in the
 peripheral micro USB port, NOT THE POWER PORT. A power cord is not required as
@@ -85,7 +107,7 @@ PI, plug it into any machine with a USB SD card adaptor and then change
 /boot/payload.dd file to any DuckyScript Payload. This is what file the Pi will
 inject into the target device.
 
-[[summary]]
+[#summary]
 == Summary
 
 Follow step 1 -5.
@@ -113,7 +135,7 @@ de German Keyboard layout
 
 Good Luck :)
 
-[[duckyscript]]
+[#duckyscript]
 == Duckyscript
 
 There are lots of
@@ -126,7 +148,7 @@ compiled inject.bin file or a duckycode.txt file. You need to download the
 duckycode.txt file and change the name/extension to payload.dd and then put it
 in the /boot part of the SD card so that the Pi can load and run the script.
 
-[[credits]]
+[#credits]
 == Credits
 
 Authors: lucki1000
@@ -138,7 +160,7 @@ Credits to Original Authors: DroidDucky by Andrej Budincevic
 (https://github.com/anbud/DroidDucky) hardpass by girst
 (https://github.com/girst/hardpass)
 
-[[mit-license]]
+[#mit-license]
 == MIT License
 
 Copyright (c) [2018] [Zac Henry Orehawa]
