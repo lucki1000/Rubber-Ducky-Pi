@@ -98,9 +98,9 @@ sudo ./duckysetup.sh
 
 **6.**Turn off the PI, plug it into the target host machine via USB cable in the
 peripheral micro USB port, NOT THE POWER PORT. A power cord is not required as
-the Pi Zero will take power directly from the host machine. +
+the Pi Zero will take power directly from the host machine. + +
 **7.**Watch the script execute on the host machine - You may have to plug it in
-twice, the first time installs drivers. +
+twice, the first time installs drivers. + +
 **8.**Once the default script runs you can unplug and take the SD card out of the
 PI, plug it into any machine with a USB SD card adaptor and then change
 /boot/payload.dd file to any DuckyScript Payload. This is what file the Pi will
