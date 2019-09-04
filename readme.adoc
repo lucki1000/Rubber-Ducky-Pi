@@ -10,7 +10,7 @@ Version 1.0 Rubber Ducky USB HID!
 == German Keyboard supports actually all the key in the Result:
 
 Special Thanks to
-https://electronics.stackexchange.com/users/135565/ephemeral[@Ephemeral
+https://electronics.stackexchange.com/users/135565/ephemeral[Ephemeral
 
 [[introduction]]
 == Introduction
