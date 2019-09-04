@@ -77,9 +77,11 @@ https://www.google.com/search?q=burn+raspbian+lite+to+sd+card[Google can help!]
 wget https://raw.githubusercontent.com/lucki1000/Raspberry-Rubber-Ducky-Pi/master/duckysetup.sh
 ----
 +
-or for oneliners (skip 4 and 5): ``` bash 
+or for oneliners (skip 4 and 5): 
+----
 wget https://raw.githubusercontent.com/lucki1000/Raspberry-Rubber-Ducky-Pi/master/duckysetup.sh && chmod +x duckysetup.sh && sudo ./duckysetup.sh
-```
+----
+
 4.  Make the script executable
 +
 [source,bash]
