@@ -45,7 +45,7 @@ scripting language allowing penetration testers to quickly and easily craft and
 deploy security auditing payloads that mimic human keyboard input. Tools and
 payloads can be found at usbrubberducky.com. Quack!
 
-RubberDucky Pi is a Raspberry Pi distro. based on Minibian which allows the
+RubberDucky Pi is a project which allows the
 Raspberry Pi Zero to behave similar to a
 https://hakshop.com/products/usb-rubber-ducky-deluxe[USB Rubber Ducky]: a small
 device USB device which emulates a keyboard and automates key entry. Ducky
@@ -111,16 +111,16 @@ inject into the target device.
 [#summary]
 == Summary
 
-Follow step 1 -5.
+Follow step 1 - 5.
 
 Then edit /boot/payload.dd with your script.
 
-Then reboot/shutdown your Zero and plug it into your target with the otg port.
+After that reboot/shutdown your Zero and plug it into your target with the otg port.
 (Not the power port on the Pi)
 
 Then wait.
 
-If you wouldn't reboot every time you want to annoy anyone you can launch this:
+If you wouldn't reboot every time if you want to annoy anyone, you can launch this:
 
 ....
 /home/pi/duckpi.sh ${layout} payload_file
