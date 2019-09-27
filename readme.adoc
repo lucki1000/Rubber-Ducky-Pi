@@ -10,7 +10,7 @@ link:#getting-started[Getting Started]
 
 link:#installation[Installation]
 
-link:#summary[Installation Summary]
+link:#summary[Installation and how to use it Summary]
 
 link:#duckyscript[Duckyscript]
 
@@ -109,7 +109,7 @@ PI, plug it into any machine with a USB SD card adaptor and then change
 inject into the target device.
 
 [#summary]
-== Installation Summary
+== Installation and how to use it Summary
 
 Follow step 1 - 5.
 
