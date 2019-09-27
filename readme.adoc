@@ -10,7 +10,7 @@ link:#getting-started[Getting Started]
 
 link:#installation[Installation]
 
-link:#summary[Summary]
+link:#summary[Installation Summary]
 
 link:#duckyscript[Duckyscript]
 
