@@ -5,6 +5,7 @@ if [ $EUID -ne 0 ]; then
 	exit
 fi
 read -p "Enter Keyboard layout supported layouts: `echo $'\n de \n us \n '`" layout
+kernel="$(uname -r)"
 
 apt update
 apt upgrade -y
@@ -17,7 +18,7 @@ echo "dwc2" | sudo tee -a /etc/modules
 sudo echo "libcomposite" | sudo tee -a /etc/modules
 
 ##Install git and download rspiducky
-wget --no-check-certificate https://raw.githubusercontent.com/lucki1000/Raspberry-Rubber-Ducky-Pi/master/LICENSE https://raw.githubusercontent.com/lucki1000/Raspberry-Rubber-Ducky-Pi/master/duckpi.sh https://raw.githubusercontent.com/lucki1000/Raspberry-Rubber-Ducky-Pi/master/g_hid.ko https://raw.githubusercontent.com/lucki1000/Raspberry-Rubber-Ducky-Pi/master/hid-gadget-test.c https://raw.githubusercontent.com/lucki1000/Raspberry-Rubber-Ducky-Pi/master/hid_usb https://raw.githubusercontent.com/lucki1000/Raspberry-Rubber-Ducky-Pi/master/readme.md https://raw.githubusercontent.com/lucki1000/Raspberry-Rubber-Ducky-Pi/master/usleep https://raw.githubusercontent.com/lucki1000/Raspberry-Rubber-Ducky-Pi/master/usleep.c https://raw.githubusercontent.com/lucki1000/Raspberry-Rubber-Ducky-Pi/master/hid-gadget-test_german.c
+wget --no-check-certificate https://raw.githubusercontent.com/lucki1000/Raspberry-Rubber-Ducky-Pi/testing/LICENSE https://raw.githubusercontent.com/lucki1000/Raspberry-Rubber-Ducky-Pi/testing/duckpi.sh https://raw.githubusercontent.com/lucki1000/Raspberry-Rubber-Ducky-Pi/testing/g_hid.ko https://raw.githubusercontent.com/lucki1000/Raspberry-Rubber-Ducky-Pi/testing/hid-gadget-test.c https://raw.githubusercontent.com/lucki1000/Raspberry-Rubber-Ducky-Pi/testing/hid_usb https://raw.githubusercontent.com/lucki1000/Raspberry-Rubber-Ducky-Pi/testing/readme.md https://raw.githubusercontent.com/lucki1000/Raspberry-Rubber-Ducky-Pi/testing/usleep https://raw.githubusercontent.com/lucki1000/Raspberry-Rubber-Ducky-Pi/testing/usleep.c https://raw.githubusercontent.com/lucki1000/Raspberry-Rubber-Ducky-Pi/testing/hid-gadget-test_german.c
 
 if [[ $layout == "de" ]]
 then	
@@ -33,7 +34,7 @@ fi
 cd /home/pi
 chmod 755 hid-gadget-test.c duckpi.sh usleep.c g_hid.ko usleep hid-gadget-test hid-gadget-test_german.c
 
-\cp -r g_hid.ko /lib/modules/4.??.??+/kernel/drivers/usb/gadget/legacy
+\cp -r g_hid.ko /lib/modules/${kernel}/kernel/drivers/usb/gadget/legacy
 
 cat <<'EOF'>>/etc/modules
 dwc2
