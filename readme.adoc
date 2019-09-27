@@ -109,7 +109,7 @@ PI, plug it into any machine with a USB SD card adaptor and then change
 inject into the target device.
 
 [#summary]
-== Summary
+== Installation Summary
 
 Follow step 1 - 5.
 
