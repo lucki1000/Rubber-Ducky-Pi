@@ -13,7 +13,7 @@ fi
 if [ $layout == "de" ]; then
 	echo "Dein aktueller Kernel ist: ${kernel}"
 fi
-sleep 5
+sleep 5 
 apt update
 apt upgrade -y
 apt install -y rpi-update vim
