@@ -7,6 +7,13 @@ fi
 read -p "Enter Keyboard layout supported layouts: `echo $'\n de \n us \n '`" layout
 kernel="$(uname -r)"
 
+if [ $layout == "us" ]; then
+	echo "$Your actuall kernel version is{kernel}"
+fi
+if [ $layout == "de" ]; then
+	echo "Dein aktueller Kernel ist: ${kernel}"
+if
+sleep 100
 apt update
 apt upgrade -y
 apt install -y rpi-update vim
