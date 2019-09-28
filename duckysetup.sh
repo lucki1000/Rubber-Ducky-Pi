@@ -10,7 +10,6 @@ kernel="$(uname -r)"
 apt update
 apt upgrade -y
 apt install -y rpi-update vim
-echo "y" | rpi-update
 
 ## dwc2 drivers
 sed -i -e "\$adtoverlay=dwc2" /boot/config.txt
