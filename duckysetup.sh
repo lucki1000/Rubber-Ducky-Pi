@@ -12,7 +12,7 @@ if [ $layout == "us" ]; then
 fi
 if [ $layout == "de" ]; then
 	echo "Dein aktueller Kernel ist: ${kernel}"
-if
+fi
 sleep 100
 apt update
 apt upgrade -y
