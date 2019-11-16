@@ -21,7 +21,7 @@ link:#mit-license[MIT License]
 [#info]
 == Info:
 
-==== German Keyboard supports actually all the key in the Result:
+==== German Keyboard supports actually all these keys in the Result:
 
 ```
 expected: !"§$%&/()=?#@ _ . , ; : \ ` ß { [ ] } + * ~ ' - < > | ^ ° 
@@ -123,7 +123,7 @@ Then wait.
 If you wouldn't reboot every time if you want to annoy anyone, you can launch this:
 
 ....
-/home/pi/duckpi.sh ${layout} payload_file
+/home/pi/duckpi.sh ${layout} payload_file | any payload text file who is readable like a .txt
 ....
 
 $\{layout} you must replace with your keyboard layout.
