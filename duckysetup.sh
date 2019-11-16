@@ -35,9 +35,9 @@ then
 	gcc hid-gadget-test.c -o hid-gadget-test
 fi
 
-arg=hello
-
+chmod +x test.sh
 # call other script
+arg=hello
 chmod +x /home/pi/kernel_files_copie.sh
 sudo /home/pi/kernel_files_copie.sh $arg
 
