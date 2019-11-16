@@ -5,6 +5,7 @@ if [ $EUID -ne 0 ]; then
 	exit
 fi
 read -p "Enter Keyboard layout supported layouts: `echo $'\n de \n us \n '`" layout
+kernel="$(uname -r)"
 
 if [ $layout == "us" ]; then
 	echo "$Your actuall kernel version is{kernel}"
@@ -34,8 +35,13 @@ then
 	gcc hid-gadget-test.c -o hid-gadget-test
 fi
 
+arg=hello
+
+# call other script
 chmod +x /home/pi/kernel_files_copie.sh
-sudo /home/pi/kernel_files_copie.sh "1"
+sudo /home/pi/kernel_files_copie.sh $arg
+
+# continue with this script
 
 cat <<'EOF'>>/etc/modules
 dwc2
