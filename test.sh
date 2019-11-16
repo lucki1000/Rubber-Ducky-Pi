@@ -1,7 +1,6 @@
 first_shasum="1"
 shasum="$(shasum payload.txt)"
 while true:
-	sleep 5
 	shasum="$(shasum payload.txt)"
 	if[ first_shasum =! shasum  ]
 	then
