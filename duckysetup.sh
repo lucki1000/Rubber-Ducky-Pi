@@ -35,7 +35,7 @@ then
 fi
 
 chmod +x /home/pi/kernel_files_copie.sh
-sudo /home/pi/kernel_files_copie.sh 1
+sudo /home/pi/kernel_files_copie.sh "1"
 
 cat <<'EOF'>>/etc/modules
 dwc2
