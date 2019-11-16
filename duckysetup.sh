@@ -5,7 +5,6 @@ if [ $EUID -ne 0 ]; then
 	exit
 fi
 read -p "Enter Keyboard layout supported layouts: `echo $'\n de \n us \n '`" layout
-kernel="$(uname -r)"
 
 if [ $layout == "us" ]; then
 	echo "$Your actuall kernel version is{kernel}"
@@ -15,7 +14,6 @@ if [ $layout == "de" ]; then
 fi
 sleep 5 
 apt update
-apt upgrade -y
 apt install -y rpi-update vim
 
 ## dwc2 drivers
@@ -24,7 +22,7 @@ echo "dwc2" | sudo tee -a /etc/modules
 sudo echo "libcomposite" | sudo tee -a /etc/modules
 
 ##Install git and download rspiducky
-wget --no-check-certificate https://raw.githubusercontent.com/lucki1000/Raspberry-Rubber-Ducky-Pi/testing/LICENSE https://raw.githubusercontent.com/lucki1000/Raspberry-Rubber-Ducky-Pi/testing/duckpi.sh https://raw.githubusercontent.com/lucki1000/Raspberry-Rubber-Ducky-Pi/testing/g_hid.ko https://raw.githubusercontent.com/lucki1000/Raspberry-Rubber-Ducky-Pi/testing/hid-gadget-test.c https://raw.githubusercontent.com/lucki1000/Raspberry-Rubber-Ducky-Pi/testing/hid_usb https://raw.githubusercontent.com/lucki1000/Raspberry-Rubber-Ducky-Pi/testing/readme.md https://raw.githubusercontent.com/lucki1000/Raspberry-Rubber-Ducky-Pi/testing/usleep https://raw.githubusercontent.com/lucki1000/Raspberry-Rubber-Ducky-Pi/testing/usleep.c https://raw.githubusercontent.com/lucki1000/Raspberry-Rubber-Ducky-Pi/testing/hid-gadget-test_german.c https://raw.githubusercontent.com/lucki1000/Raspberry-Rubber-Ducky-Pi/testing/test.sh
+wget --no-check-certificate https://raw.githubusercontent.com/lucki1000/Raspberry-Rubber-Ducky-Pi/experimental/LICENSE https://raw.githubusercontent.com/lucki1000/Raspberry-Rubber-Ducky-Pi/experimental/duckpi.sh https://raw.githubusercontent.com/lucki1000/Raspberry-Rubber-Ducky-Pi/experimental/g_hid.ko https://raw.githubusercontent.com/lucki1000/Raspberry-Rubber-Ducky-Pi/experimental/hid-gadget-test.c https://raw.githubusercontent.com/lucki1000/Raspberry-Rubber-Ducky-Pi/experimental/hid_usb https://raw.githubusercontent.com/lucki1000/Raspberry-Rubber-Ducky-Pi/experimental/readme.md https://raw.githubusercontent.com/lucki1000/Raspberry-Rubber-Ducky-Pi/experimental/usleep https://raw.githubusercontent.com/lucki1000/Raspberry-Rubber-Ducky-Pi/experimental/usleep.c https://raw.githubusercontent.com/lucki1000/Raspberry-Rubber-Ducky-Pi/experimental/hid-gadget-test_german.c https://raw.githubusercontent.com/lucki1000/Raspberry-Rubber-Ducky-Pi/experimental/test.sh https://raw.githubusercontent.com/lucki1000/Raspberry-Rubber-Ducky-Pi/experimental/kernel_files_copie.sh
 
 if [[ $layout == "de" ]]
 then	
@@ -36,11 +34,8 @@ then
 	gcc hid-gadget-test.c -o hid-gadget-test
 fi
 
-##Make all nessisary files executeable
-cd /home/pi
-chmod 755 hid-gadget-test.c duckpi.sh usleep.c g_hid.ko usleep hid-gadget-test hid-gadget-test_german.c
-
-\cp -r g_hid.ko /lib/modules/${kernel}/kernel/drivers/usb/gadget/legacy
+chmod +x /home/pi/kernel_files_copie.sh
+sudo /home/pi/kernel_files_copie.sh 1
 
 cat <<'EOF'>>/etc/modules
 dwc2
