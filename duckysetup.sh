@@ -35,14 +35,17 @@ then
 	gcc hid-gadget-test.c -o hid-gadget-test
 fi
 
-chmod +x test.sh
+# make script executable
+chmod +x /home/pi/asynchron_writing.sh
 # call other script
-arg=hello
-chmod +x /home/pi/kernel_files_copie.sh
-sudo /home/pi/kernel_files_copie.sh $arg
+arg=hello										# It doesn't has a reason why hello :)
+chmod +x /home/pi/kernel_files_copie.sh			# make it executable
+sudo /home/pi/kernel_files_copie.sh $arg		# call script
 
 # continue with this script
+touch /home/pi/payload.txt
 
+#
 cat <<'EOF'>>/etc/modules
 dwc2
 g_hid
@@ -62,6 +65,7 @@ sleep 1
 tr -d '\r' < /home/pi/payload.dd > /home/pi/payload2.dd
 sleep 1
 /home/pi/duckpi.sh ${layout} /home/pi/payload2.dd
+/home/pi/asynchron_writing.sh ${layout}
 exit 0
 EOF
 

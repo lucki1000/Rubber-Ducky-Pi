@@ -10,7 +10,7 @@ link:#getting-started[Getting Started]
 
 link:#installation[Installation]
 
-link:#summary[Installation and how to use it Summary]
+link:#summary[ Summary, Installation and how to use it]
 
 link:#duckyscript[Duckyscript]
 
@@ -109,7 +109,7 @@ PI, plug it into any machine with a USB SD card adaptor and then change
 inject into the target device.
 
 [#summary]
-== Installation and how to use it Summary
+== Summary, Installation and how to use it.
 
 Follow step 1 - 5.
 
@@ -133,6 +133,12 @@ Actually supported Keyboards:
 us United States Keyboard layout
 
 de German Keyboard layout
+
+Now you can every time you save payload.txt, i. e. if you use Vim type only :w (save command) you don't must leave Vim (:wq)  and it execute what you write. 
+
+Have fun 
+
+And
 
 Good Luck :)
 
