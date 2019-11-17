@@ -134,7 +134,7 @@ us United States Keyboard layout
 
 de German Keyboard layout
 
-Now you can every time you save payload.txt, i. e. if you use Vim type only :w (save command) you don't must leave Vim (:wq)  and it execute what you write. 
+Now you can every time you save payload.txt, i. e. if you use Vim type :w (save command) you don't must leave Vim (:wq)  and it execute what you write. 
 
 Have fun 
 
