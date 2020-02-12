@@ -123,7 +123,7 @@ Then wait.
 If you wouldn't reboot every time if you want to annoy anyone, you can launch this:
 
 ....
-/home/pi/duckpi.sh ${layout} payload_file
+/home/pi/duckpi.sh ${layout} payload_file # payload_file any text file supported (not Binary)
 ....
 
 $\{layout} you must replace with your keyboard layout.
