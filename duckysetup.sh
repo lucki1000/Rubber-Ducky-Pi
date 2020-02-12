@@ -8,7 +8,7 @@ read -p "Enter Keyboard layout supported layouts: `echo $'\n de \n us \n '`" lay
 kernel="$(uname -r)"
 
 if [ $layout == "us" ]; then
-	echo "$Your actuall kernel version is{kernel}"
+	echo "Your actual kernel version is: ${kernel}"
 fi
 if [ $layout == "de" ]; then
 	echo "Dein aktueller Kernel ist: ${kernel}"
