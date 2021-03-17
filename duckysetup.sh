@@ -19,7 +19,7 @@ sleep 3
 
 read -p "Enter Keyboard layout supported layouts: `echo $'\n de \n us \n '`" layout
 
-while [[ $layout == "de" ] || [ $layout == "us" ]];
+while [ $layout == "de" ] || [ $layout == "us" ];
 do
 	read -p "Enter Keyboard layout supported layouts: `echo $'\n de \n us \n '`" layout
 done
