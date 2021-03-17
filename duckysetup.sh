@@ -4,7 +4,6 @@ if [ $EUID -ne 0 ]; then
 	echo "sudo $0 $@"
 	exit
 fi
-read -p "Enter Keyboard layout supported layouts: `echo $'\n de \n us \n '`" layout
 kernel="$(uname -r)"
 
 if [ $layout == "us" ]; then
@@ -24,6 +23,16 @@ sudo echo "libcomposite" | sudo tee -a /etc/modules
 
 ##Install git and download rspiducky
 wget --no-check-certificate https://raw.githubusercontent.com/lucki1000/Raspberry-Rubber-Ducky-Pi/experimental/asynchron_writing.sh https://raw.githubusercontent.com/lucki1000/Raspberry-Rubber-Ducky-Pi/experimental/LICENSE https://raw.githubusercontent.com/lucki1000/Raspberry-Rubber-Ducky-Pi/experimental/duckpi.sh https://raw.githubusercontent.com/lucki1000/Raspberry-Rubber-Ducky-Pi/experimental/g_hid.ko https://raw.githubusercontent.com/lucki1000/Raspberry-Rubber-Ducky-Pi/experimental/hid-gadget-test.c https://raw.githubusercontent.com/lucki1000/Raspberry-Rubber-Ducky-Pi/experimental/hid_usb https://raw.githubusercontent.com/lucki1000/Raspberry-Rubber-Ducky-Pi/experimental/readme.md https://raw.githubusercontent.com/lucki1000/Raspberry-Rubber-Ducky-Pi/experimental/usleep https://raw.githubusercontent.com/lucki1000/Raspberry-Rubber-Ducky-Pi/experimental/usleep.c https://raw.githubusercontent.com/lucki1000/Raspberry-Rubber-Ducky-Pi/experimental/hid-gadget-test_german.c https://raw.githubusercontent.com/lucki1000/Raspberry-Rubber-Ducky-Pi/experimental/test.sh https://raw.githubusercontent.com/lucki1000/Raspberry-Rubber-Ducky-Pi/experimental/kernel_files_copie.sh
+
+sleep 3
+
+read -p "Enter Keyboard layout supported layouts: `echo $'\n de \n us \n '`" layout
+
+while [[ $layout == "de" ] || [ $layout == "us" ]];
+do
+	read -p "Enter Keyboard layout supported layouts: `echo $'\n de \n us \n '`" layout
+done
+
 
 if [[ $layout == "de" ]]
 then	
