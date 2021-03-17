@@ -28,11 +28,13 @@ wget --no-check-certificate https://raw.githubusercontent.com/lucki1000/Raspberr
 if [[ $layout == "de" ]]
 then	
 	gcc hid-gadget-test_german.c -o hid-gadget-test
+	echo "DE DEBUG MESSAGE"
 fi
 
 if [[ $layout == "us" ]]
 then
 	gcc hid-gadget-test.c -o hid-gadget-test
+	echo "EN DEBUG MESSAGE"
 fi
 
 # make script executable
