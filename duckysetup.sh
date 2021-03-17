@@ -3,16 +3,7 @@ if [ $EUID -ne 0 ]; then
 	echo "You must use sudo to run this script:"
 	echo "sudo $0 $@"
 	exit
-fi
-kernel="$(uname -r)"
-
-if [ $layout == "us" ]; then
-	echo "Your actual kernel version is: ${kernel}"
-fi
-if [ $layout == "de" ]; then
-	echo "Dein aktueller Kernel ist: ${kernel}"
-fi
-sleep 5 
+fi 
 apt update
 apt install -y rpi-update vim
 
@@ -40,11 +31,22 @@ then
 	echo "DE DEBUG MESSAGE"
 fi
 
+kernel="$(uname -r)"
+
+if [ $layout == "us" ]; then
+	echo "Your actual kernel version is: ${kernel}"
+fi
+if [ $layout == "de" ]; then
+	echo "Dein aktueller Kernel ist: ${kernel}"
+fi
+
 if [[ $layout == "us" ]]
 then
 	gcc hid-gadget-test.c -o hid-gadget-test
 	echo "EN DEBUG MESSAGE"
 fi
+
+sleep 3
 
 # make script executable
 chmod +x /home/pi/asynchron_writing.sh
