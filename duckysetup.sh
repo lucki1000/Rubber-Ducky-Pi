@@ -71,8 +71,8 @@ cat /boot/payload.dd > /home/pi/payload.dd
 sleep 1
 tr -d '\r' < /home/pi/payload.dd > /home/pi/payload2.dd
 sleep 1
-/home/pi/duckpi.sh ${layout} /home/pi/payload2.dd
-/home/pi/asynchron_writing.sh ${layout}
+/home/pi/duckpi.sh $1 /home/pi/payload2.dd
+/home/pi/asynchron_writing.sh $1
 exit 0
 EOF
 
@@ -84,7 +84,7 @@ STRING www.youtube.com/watch?v=dQw4w9WgXcQ
 ENTER
 EOF
 
-if [[ $layout == "de" ]]
+if [[ $1 == "de" ]]
 then
 	echo "Erst nach einem Neustart funktioniert dein Pi als Rubber-Ducky\n"
 	read -p "Willst du dein Pi Neustarten?\n `echo $'\n ja \n nein \n '`" choice
@@ -92,9 +92,7 @@ then
 	then
 		sudo reboot
 	fi
-fi
-
-if [[ $layout == "us" ]]
+elif [[ $1 == "us" ]]
 then
 	echo "First after a reboot your Pi can working as rubber ducky\n"
 	read -p "Did you will restart your Pi?\n `echo $'\n yes \n no \n '`" choice
