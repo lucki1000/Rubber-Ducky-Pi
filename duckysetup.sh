@@ -4,8 +4,10 @@ if [ $EUID -ne 0 ]; then
 	echo "sudo $0 $@"
 	exit
 fi 
-apt update
-apt install -y rpi-update vim
+echo $1
+echo "Running APT Update and install Vim"
+apt update > /dev/null 2>&1
+apt install -y rpi-update vim > /dev/null 2>&1
 
 ## dwc2 drivers
 sed -i -e "\$adtoverlay=dwc2" /boot/config.txt
@@ -19,9 +21,11 @@ sleep 3
 
 kernel="$(uname -r)"
 
-if [ $1 == "us" ]; then
+if [[ $1 == "us" ]]
+then
 	echo "Your actual kernel version is: ${kernel}"
-elif [ $1 == "de" ]; then
+elif [[ $1 == "de" ]]
+then
 	echo "Dein aktueller Kernel ist: ${kernel}"
 fi
 
