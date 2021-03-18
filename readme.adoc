@@ -71,8 +71,8 @@ https://www.raspberrypi.org/downloads/raspbian/[Rasbian Lite]. +
 https://www.google.com/search?q=burn+raspbian+lite+to+sd+card[Google can help!] +
 **3.** Version 1.0:
 
-[source,bash]
 Set Layout current supported de, en:
+[source,bash]
 ----
 layout=de
 ----
