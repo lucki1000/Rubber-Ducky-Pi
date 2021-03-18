@@ -17,30 +17,20 @@ wget --no-check-certificate https://raw.githubusercontent.com/lucki1000/Raspberr
 
 sleep 3
 
-read -p "Enter Keyboard layout supported layouts: `echo $'\n de \n us \n '`" layout
-
-while [[ $layout != "de" ]] || [[ $layout != "us" ]];
-do
-	read -p "Enter Keyboard layout supported layouts: `echo $'\n de \n us \n '`" layout
-done
-
-
-if [[ $layout == "de" ]]
-then	
-	gcc hid-gadget-test_german.c -o hid-gadget-test
-	echo "DE DEBUG MESSAGE"
-fi
-
 kernel="$(uname -r)"
 
-if [ $layout == "us" ]; then
+if [ $1 == "us" ]; then
 	echo "Your actual kernel version is: ${kernel}"
-fi
-if [ $layout == "de" ]; then
+elif [ $1 == "de" ]; then
 	echo "Dein aktueller Kernel ist: ${kernel}"
 fi
 
-if [[ $layout == "us" ]]
+
+if [[ $1 == "de" ]]
+then	
+	gcc hid-gadget-test_german.c -o hid-gadget-test
+	echo "DE DEBUG MESSAGE"
+elif [[ $1 == "us" ]]
 then
 	gcc hid-gadget-test.c -o hid-gadget-test
 	echo "EN DEBUG MESSAGE"
