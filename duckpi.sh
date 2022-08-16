@@ -90,7 +90,7 @@ function convert() {
 		elif [[ "$1" == "§" ]]; then
 			kbcode='left-shift 3'
 		elif [[ "$1" == "ß" ]]; then
-			kbcode='minus'
+			kbcode='ß'
 		elif [[ "$1" == "\`" ]]; then
 			kbcode='left-shift equal'
 		elif [[ "$1" == "\´" ]]; then
@@ -114,7 +114,7 @@ function convert() {
 		elif [[ "$1" == ";" ]]; then
 			kbcode='left-shift comma'
 		elif [[ "$1" == "<" ]]; then
-			kbcode='non-us-100'
+			kbcode='<'
 		elif [[ "$1" == "," ]]; then
 			kbcode='comma'
 		elif [[ "$1" == ">" ]]; then
