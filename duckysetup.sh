@@ -1,13 +1,16 @@
 #!/bin/bash
+export usr="$USER"
+su
 if [ $EUID -ne 0 ]; then
 	echo "You must use sudo to run this script:"
 	echo "sudo $0 $@"
 	exit
-fi 
+fi
+export USR-HOME="/home/${usr}/Raspberry-Rubber-Ducky-Pi"
 echo $1
-echo "Running APT Update and install Vim"
+echo "Running APT Update and install Vim & Git"
 apt update > /dev/null 2>&1
-apt install -y rpi-update vim > /dev/null 2>&1
+apt install -y rpi-update vim git > /dev/null 2>&1
 
 ## dwc2 drivers
 sed -i -e "\$adtoverlay=dwc2" /boot/config.txt
@@ -15,7 +18,8 @@ echo "dwc2" | sudo tee -a /etc/modules
 sudo echo "libcomposite" | sudo tee -a /etc/modules
 
 ##Install git and download rspiducky
-wget --no-check-certificate https://raw.githubusercontent.com/lucki1000/Raspberry-Rubber-Ducky-Pi/experimental/asynchron_writing.sh https://raw.githubusercontent.com/lucki1000/Raspberry-Rubber-Ducky-Pi/experimental/LICENSE https://raw.githubusercontent.com/lucki1000/Raspberry-Rubber-Ducky-Pi/experimental/duckpi.sh https://raw.githubusercontent.com/lucki1000/Raspberry-Rubber-Ducky-Pi/experimental/g_hid.ko https://raw.githubusercontent.com/lucki1000/Raspberry-Rubber-Ducky-Pi/experimental/hid-gadget-test.c https://raw.githubusercontent.com/lucki1000/Raspberry-Rubber-Ducky-Pi/experimental/hid_usb https://raw.githubusercontent.com/lucki1000/Raspberry-Rubber-Ducky-Pi/experimental/readme.md https://raw.githubusercontent.com/lucki1000/Raspberry-Rubber-Ducky-Pi/experimental/usleep https://raw.githubusercontent.com/lucki1000/Raspberry-Rubber-Ducky-Pi/experimental/usleep.c https://raw.githubusercontent.com/lucki1000/Raspberry-Rubber-Ducky-Pi/experimental/hid-gadget-test_german.c https://raw.githubusercontent.com/lucki1000/Raspberry-Rubber-Ducky-Pi/experimental/test.sh https://raw.githubusercontent.com/lucki1000/Raspberry-Rubber-Ducky-Pi/experimental/kernel_files_copie.sh > /dev/null 2>&1
+#wget --no-check-certificate https://raw.githubusercontent.com/lucki1000/Raspberry-Rubber-Ducky-Pi/experimental/asynchron_writing.sh https://raw.githubusercontent.com/lucki1000/Raspberry-Rubber-Ducky-Pi/experimental/LICENSE https://raw.githubusercontent.com/lucki1000/Raspberry-Rubber-Ducky-Pi/experimental/duckpi.sh https://raw.githubusercontent.com/lucki1000/Raspberry-Rubber-Ducky-Pi/experimental/g_hid.ko https://raw.githubusercontent.com/lucki1000/Raspberry-Rubber-Ducky-Pi/experimental/hid-gadget-test.c https://raw.githubusercontent.com/lucki1000/Raspberry-Rubber-Ducky-Pi/experimental/hid_usb https://raw.githubusercontent.com/lucki1000/Raspberry-Rubber-Ducky-Pi/experimental/readme.md https://raw.githubusercontent.com/lucki1000/Raspberry-Rubber-Ducky-Pi/experimental/usleep https://raw.githubusercontent.com/lucki1000/Raspberry-Rubber-Ducky-Pi/experimental/usleep.c https://raw.githubusercontent.com/lucki1000/Raspberry-Rubber-Ducky-Pi/experimental/hid-gadget-test_german.c https://raw.githubusercontent.com/lucki1000/Raspberry-Rubber-Ducky-Pi/experimental/test.sh https://raw.githubusercontent.com/lucki1000/Raspberry-Rubber-Ducky-Pi/experimental/kernel_files_copie.sh > /dev/null 2>&1
+git clone https://github.com/lucki1000/Raspberry-Rubber-Ducky-Pi.git
 
 sleep 3
 
@@ -31,26 +35,26 @@ fi
 
 
 if [[ $1 == "de" ]]
-then	
-	gcc hid-gadget-test_german.c -o hid-gadget-test
+then
+	gcc ${USR-HOME}/hid-gadget-test_german.c -o ${USR-HOME}/hid-gadget-test
 	echo "DE DEBUG MESSAGE"
 elif [[ $1 == "us" ]]
 then
-	gcc hid-gadget-test.c -o hid-gadget-test
-	echo "EN DEBUG MESSAGE"
+	gcc ${USR-HOME}/hid-gadget-test.c -o ${USR-HOME}/hid-gadget-test
+	echo "US DEBUG MESSAGE"
 fi
 
 sleep 3
 
 # make script executable
-chmod +x /home/pi/asynchron_writing.sh
+chmod +x ${USR-HOME}/asynchron_writing.sh
 # call other script
 arg=hello										# It doesn't has a reason why hello :)
-chmod +x /home/pi/kernel_files_copie.sh			# make it executable
-sudo /home/pi/kernel_files_copie.sh $arg		# call script
+chmod +x ${USR-HOME}/kernel_files_copy.sh			# make it executable
+sudo ${USR-HOME}/kernel_files_copy.sh "$arg" "$USR-HOME"		# call script
 
 # continue with this script
-touch /home/pi/payload.txt
+#touch Raspberry-Rubber-Ducky-Pi/payload.txt
 
 #
 cat <<'EOF'>>/etc/modules
@@ -59,20 +63,13 @@ g_hid
 EOF
 
 ##Make it so that you can put the payload.dd in the /boot directory
-sudo cp -r /home/pi/hid_usb /usr/bin/hid_usb
+sudo cp -r ${USR-HOME}/hid_usb /usr/bin/hid_usb
 sudo chmod +x /usr/bin/hid_usb
 
 sed -i '/exit/d' /etc/rc.local
 
 cat <<EOF>>/etc/rc.local
 /usr/bin/hid_usb # libcomposite configuration
-sleep 3
-cat /boot/payload.dd > /home/pi/payload.dd
-sleep 1
-tr -d '\r' < /home/pi/payload.dd > /home/pi/payload2.dd
-sleep 1
-/home/pi/duckpi.sh $1 /home/pi/payload2.dd
-/home/pi/asynchron_writing.sh $1
 exit 0
 EOF
 
