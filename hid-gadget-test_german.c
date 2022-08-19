@@ -76,7 +76,7 @@ static struct options kval[] = {
 	{.opt = "tab",			.val = 0x2b},
 	{.opt = "space",		.val = 0x2c},
 	{.opt = "ß",			.val = 0x2d},
-	{.opt = "backquote",	.val = 0x2e},
+	{.opt = "´",			.val = 0x2e},
 	{.opt = "ü",			.val = 0x2f},
 	{.opt = "+",			.val = 0x30},
 	{.opt = "#",			.val = 0x31},
