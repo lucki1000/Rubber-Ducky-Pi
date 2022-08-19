@@ -190,7 +190,7 @@ while IFS='' read -r line || [[ -n "$line" ]]; do
 
 	elif [ "$cmd" == "DELAY" ]; then
 		last_cmd="UNS"
-		((info = info * 1000))
+		((info = info * 100000))
 		/home/pi/Raspberry-Rubber-Ducky-Pi/usleep $info
 
 	elif [ "$cmd" == "WINDOWS" -o "$cmd" == "GUI" ]; then
