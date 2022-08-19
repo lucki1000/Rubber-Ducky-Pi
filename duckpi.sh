@@ -86,45 +86,45 @@ function convert() {
 		elif [[ "$1" == "!" ]]; then
 			kbcode='left-shift 1'
 		elif [[ "$1" == "." ]]; then
-			kbcode='period'
+			kbcode='.'
 		elif [[ "$1" == "§" ]]; then
 			kbcode='left-shift 3'
 		elif [[ "$1" == "ß" ]]; then
 			kbcode='ß'
 		elif [[ "$1" == "\`" ]]; then
-			kbcode='left-shift equal'
+			kbcode='left-shift backquote'
 		elif [[ "$1" == "\´" ]]; then
-			kbcode='equal'
+			kbcode='backquote'
 		elif [[ "$1" == "~" ]]; then
-			kbcode='right-alt rbracket'
+			kbcode='right-alt +'
 		elif [[ "$1" == "+" ]]; then
-			kbcode='rbracket'
+			kbcode='+'
 		elif [[ "$1" == "=" ]]; then
 			kbcode='left-shift 0'
 		elif [[ "$1" == "_" ]]; then
-			kbcode='left-shift slash'
+			kbcode='left-shift -'
 		elif [[ "$1" == "-" ]]; then
-			kbcode='slash'
+			kbcode='-'
 		elif [[ "$1" == "\"" ]]; then
 			kbcode='left-shift 2'
 		elif [[ "$1" == "'" ]]; then
-			kbcode='left-shift backslash'
+			kbcode='left-shift #'
 		elif [[ "$1" == ":" ]]; then
-			kbcode='left-shift period'
+			kbcode='left-shift .'
 		elif [[ "$1" == ";" ]]; then
-			kbcode='left-shift comma'
+			kbcode='left-shift ,'
 		elif [[ "$1" == "<" ]]; then
 			kbcode='<'
 		elif [[ "$1" == "," ]]; then
-			kbcode='comma'
+			kbcode=','
 		elif [[ "$1" == ">" ]]; then
-			kbcode='left-shift non-us-100'
+			kbcode='left-shift <'
 		elif [[ "$1" == "?" ]]; then
-			kbcode='left-shift minus'
+			kbcode='left-shift ß'
 		elif [[ "$1" == "\\" ]]; then
-			kbcode='right-alt minus'
+			kbcode='right-alt ß'
 		elif [[ "$1" == "|" ]]; then
-			kbcode='right-alt non-us-100'
+			kbcode='right-alt <'
 		elif [[ "$1" == "/" ]]; then
 			kbcode='left-shift 7'
 		elif [[ "$1" == "{" ]]; then
@@ -140,7 +140,7 @@ function convert() {
 		elif [[ "$1" == "]" ]]; then
 			kbcode='right-alt 9'
 		elif [[ "$1" == "#" ]]; then
-			kbcode='backslash'
+			kbcode='#'
 		elif [[ "$1" == "@" ]]; then
 			kbcode='right-alt q'
 		elif [[ "$1" == "$" ]]; then
@@ -154,7 +154,7 @@ function convert() {
 		elif [[ "$1" == "&" ]]; then
 			kbcode='left-shift 6'
 		elif [[ "$1" == "*" ]]; then
-			kbcode='left-shift rbracket'
+			kbcode='left-shift +'
 
 		fi # and keys if
 	fi # and lang if
