@@ -92,7 +92,7 @@ function convert() {
 		elif [[ "$1" == "ß" ]]; then
 			kbcode='ß'
 		elif [[ "$1" == "\`" ]]; then
-			kbcode='left-shift backquote'
+			kbcode='left-shift ´'
 		elif [[ "$1" == "´" ]]; then
 			kbcode='´'
 		elif [[ "$1" == "~" ]]; then
