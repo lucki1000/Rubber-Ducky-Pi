@@ -96,7 +96,7 @@ chmod +x duckysetup.sh
 
 **6.** Turn off the PI, plug it into the target host machine via USB cable in the peripheral micro USB port, NOT THE POWER PORT. A power cord is not required as the Pi Zero will take power directly from the host machine.
 
-**7.** Login to your Pi through ssh and write your Script to get into write mode you have to press `i` and if your wrote your duckyscript or copied into it you have to press `ESC` + `;` + `w` and press Enter key. 
+**7.** Login to your Pi through ssh and write your Script to get into write mode you have to press `i` and if your wrote your duckyscript or copied into it you have to press `ESC` + `:` + `w` and press Enter key. 
 
 [#summary]
 == Summary, Installation and how to use it.
