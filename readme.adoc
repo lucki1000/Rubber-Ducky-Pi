@@ -6,8 +6,6 @@ Version 1.0 Rubber Ducky USB HID!
 
 link:#info[Info]
 
-link:#getting-started[Getting Started]
-
 link:#installation[Installation]
 
 link:#summary[ Summary, Installation and how to use it]
@@ -24,12 +22,12 @@ link:#mit-license[MIT License]
 ==== German Keyboard supports actually all these keys in the Result:
 
 ```
-expected: !"§$%&/()=?#@ _ . , ; : \ ` ß { [ ] } + * ~ ' - < > | ^ ° 
-result  : !"§$%&/()=?#@ _ . , ; : \ ` ß { [ ] } + * ~ ' - < > | ^ °
+expected:  
+result  : 
 ```
 
 Special Thanks to
-https://electronics.stackexchange.com/users/135565/ephemeral[Ephemeral]
+https://electronics.stackexchange.com/users/135565/ephemeral[Ephemeral].
 
 [#Introduction]
 == Introduction
@@ -57,21 +55,16 @@ Since it is recognised as a standard keyboard, this tool is compatible with
 Windows, Mac OS, Linux, Android, PlayStation 4, and anything that supports a USB
 keyboard.
 
-[#getting-started]
-== Getting Started
-
-These instructions will help you setup and install your own RubberDucky
-
 [#installation]
 === Installation
 
-**1.** Download the latest ISO for
-https://www.raspberrypi.org/downloads/raspbian/[Rasbian Lite]. +
-**2.** Burn the ISO to the Micro SD Card - if you can't do this,
-https://www.google.com/search?q=burn+raspbian+lite+to+sd+card[Google can help!] +
-**3.** Version 1.0:
+**1.** Install RaspberryPi OS Lite with the https://www.raspberrypi.com/software/[RPI Imager]. 
 
-Set Layout current supported de, en:
+**2.** Connect to your PI over ssh f. e. `ssh username@ipaddress`
+
+**3.** Set environment variable to your Layout. 
+
+Currently supported de, us:
 [source,bash]
 ----
 layout=de
@@ -83,7 +76,7 @@ wget https://raw.githubusercontent.com/lucki1000/Raspberry-Rubber-Ducky-Pi/exper
 
 or for oneliners (skip 4 and 5): 
 ----
-wget https://raw.githubusercontent.com/lucki1000/Raspberry-Rubber-Ducky-Pi/experimental/duckysetup.sh && chmod +x duckysetup.sh && sudo ./duckysetup.sh $layout
+wget https://raw.githubusercontent.com/lucki1000/Raspberry-Rubber-Ducky-Pi/experimental/duckysetup.sh && chmod +x duckysetup.sh && ./duckysetup.sh $layout
 ----
 
 **4.** Make the script executable
@@ -96,42 +89,34 @@ chmod +x duckysetup.sh
 
 [source,bash]
 ----
-sudo ./duckysetup.sh $layout
+./duckysetup.sh $layout
 ----
 
 **Using RubberDucky**
 
-**6.** Turn off the PI, plug it into the target host machine via USB cable in the
-peripheral micro USB port, NOT THE POWER PORT. A power cord is not required as
-the Pi Zero will take power directly from the host machine.
+**6.** Turn off the PI, plug it into the target host machine via USB cable in the peripheral micro USB port, NOT THE POWER PORT. A power cord is not required as the Pi Zero will take power directly from the host machine.
 
-**7.** Watch the script execute on the host machine - You may have to plug it in
-twice, the first time installs drivers.
-
-**8.** Once the default script runs you can unplug and take the SD card out of the
-PI, plug it into any machine with a USB SD card adaptor and then change
-/boot/payload.dd file to any DuckyScript Payload. This is what file the Pi will
-inject into the target device.
+**7.** Login to your Pi through ssh and write your Script to get into write mode you have to press `i` and if your wrote your duckyscript or copied into it you have to press `ESC` + `;` + `w` and press Enter key. 
 
 [#summary]
 == Summary, Installation and how to use it.
 
 Follow step 1 - 5.
 
-Then edit /boot/payload.dd with your script.
+Then edit `/opt/Raspberry-Rubber-Ducky-Pi/payload.txt` with your script.
 
 After that reboot/shutdown your Zero and plug it into your target with the otg port.
 (Not the power port on the Pi)
 
 Then wait.
 
-If you wouldn't reboot every time if you want to annoy anyone, you can launch this:
+If you wouldn't reboot every time, you can launch this:
 
 ....
-/home/pi/duckpi.sh ${layout} payload_file | any payload text file who is readable like a .txt
+sudo duckpi.sh payload_file #any payload file who is readable like a .txt
 ....
 
-$\{layout} you must replace with your keyboard layout.
+If you want to change your keyboard layout, you have to edit the .vars file in `/opt/Raspberry-Rubber-Ducky-Pi/.vars`
 
 Actually supported Keyboards:
 
@@ -139,13 +124,13 @@ us United States Keyboard layout
 
 de German Keyboard layout
 
-Now you can every time you save payload.txt, i. e. if you use Vim type :w (save command) you don't must leave Vim (:wq)  and it execute what you write. 
+To be more user friendly I bring you directly into script editing if you login into your Pi. As script editor I selected Vim, feel free to change this to Nano, Emacs or something else, go to `/etc/profile.d/rpi_ducky.sh` and replace vim with your choice
+```
+vim "${work_dir}/payload.txt"  
+```
+Have fun and Good Luck :)
 
-Have fun 
-
-And
-
-Good Luck :)
+Also feel free to make an issue if something doesn't work.
 
 [#duckyscript]
 == Duckyscript
