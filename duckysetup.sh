@@ -72,7 +72,7 @@ exit 0" | sudo tee -a /etc/rc.local
 echo "GUI r
 DELAY 50
 STRING www.youtube.com/watch?v=dQw4w9WgXcQ
-ENTER"| sudo tee -a /boot/payload.dd
+ENTER"| sudo tee -a "${work_dir}/payload.txt"
 
 #Setup Profile script
 sudo cp "${work_dir}/rpi_ducky.sh" "/etc/profile.d/"

@@ -23,7 +23,7 @@ link:#mit-license[MIT License]
 
 ```
 expected: ^°!"§$%&/()=?`´1234567890ß{}[]\+*~üäö,.;:-_#'<>|@
-result  : 
+result  : ^°!"§$%&/()=?`´1234567890ß{}[]\+*~üäö,.;:-_#'<>|@
 ```
 
 Special Thanks to
