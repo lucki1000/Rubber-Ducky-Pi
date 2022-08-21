@@ -13,7 +13,7 @@ echo "libcomposite" | sudo tee -a /etc/modules
 
 ##Install git and download rspiducky
 #wget --no-check-certificate https://raw.githubusercontent.com/lucki1000/Raspberry-Rubber-Ducky-Pi/experimental/asynchron_writing.sh https://raw.githubusercontent.com/lucki1000/Raspberry-Rubber-Ducky-Pi/experimental/LICENSE https://raw.githubusercontent.com/lucki1000/Raspberry-Rubber-Ducky-Pi/experimental/duckpi.sh https://raw.githubusercontent.com/lucki1000/Raspberry-Rubber-Ducky-Pi/experimental/g_hid.ko https://raw.githubusercontent.com/lucki1000/Raspberry-Rubber-Ducky-Pi/experimental/hid-gadget-test.c https://raw.githubusercontent.com/lucki1000/Raspberry-Rubber-Ducky-Pi/experimental/hid_usb https://raw.githubusercontent.com/lucki1000/Raspberry-Rubber-Ducky-Pi/experimental/readme.md https://raw.githubusercontent.com/lucki1000/Raspberry-Rubber-Ducky-Pi/experimental/usleep https://raw.githubusercontent.com/lucki1000/Raspberry-Rubber-Ducky-Pi/experimental/usleep.c https://raw.githubusercontent.com/lucki1000/Raspberry-Rubber-Ducky-Pi/experimental/hid-gadget-test_german.c https://raw.githubusercontent.com/lucki1000/Raspberry-Rubber-Ducky-Pi/experimental/test.sh https://raw.githubusercontent.com/lucki1000/Raspberry-Rubber-Ducky-Pi/experimental/kernel_files_copie.sh > /dev/null 2>&1
-sudo git clone https://github.com/lucki1000/Raspberry-Rubber-Ducky-Pi.git /opt/Raspberry-Rubber-Ducky-Pi
+sudo git clone https://github.com/lucki1000/Raspberry-Rubber-Ducky-Pi.git ${work_dir}
 sudo chown -R "$usr":"$usr" /opt/Raspberry-Rubber-Ducky-Pi/
 sleep 3
 
@@ -57,9 +57,8 @@ sudo "${work_dir}/kernel_files_copy.sh" "$arg" 	# call script
 echo "dwc2
 g_hid" |sudo tee -a /etc/modules
 
-
-
-##Make it so that you can put the payload.dd in the /boot directory
+#copy duckpi.sh to /usr/sbin/
+sudo cp "${work_dir}/duckpi.sh" "/usr/sbin/"
 sudo cp -r "${work_dir}/hid_usb" "/usr/bin/hid_usb"
 sudo chmod +x /usr/bin/hid_usb
 
@@ -74,6 +73,9 @@ echo "GUI r
 DELAY 50
 STRING www.youtube.com/watch?v=dQw4w9WgXcQ
 ENTER"| sudo tee -a /boot/payload.dd
+
+#Setup Profile script
+sudo cp "${work_dir}/rpi_ducky.sh" "/etc/profile.d/"
 
 #sed -i "s/\/pi\//\/$usr\//" "${work_dir}/duckpi.sh"
 
