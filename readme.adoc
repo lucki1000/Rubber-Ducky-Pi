@@ -22,7 +22,7 @@ link:#mit-license[MIT License]
 ==== German Keyboard supports actually all these keys in the Result:
 
 ```
-expected:  
+expected: ^°!"§$%&/()=?`´1234567890ß{}[]\+*~üäö,.;:-_#'<>|@
 result  : 
 ```
 
