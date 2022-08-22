@@ -19,7 +19,8 @@ sleep 3
 
 kernel="$(uname -r)"
 
-if [[ $1 == "us" ]]
+
+if [ "$1" = "us" ] || [ "$1" = "uk" ]
 then
 	echo "Your actual kernel version is: ${kernel}"
 elif [[ $1 == "de" ]]
@@ -36,6 +37,10 @@ elif [[ $1 == "us" ]]
 then
 	gcc "${work_dir}/hid-gadget-test.c" -o "${work_dir}/hid-gadget-test"
 	echo "US DEBUG MESSAGE"
+elif [[ $1 == "uk" ]]
+then
+	gcc "${work_dir}/hid-gadget-test_uk.c" -o "${work_dir}/hid-gadget-test"
+	echo "UK DEBUG MESSAGE"
 fi
 
 sleep 3
@@ -87,7 +92,7 @@ then
 	then
 		sudo reboot
 	fi
-elif [[ $1 == "us" ]]
+elif [ "$1" = "us" ] || [ "$1" = "uk" ]
 then
 	printf "First after a reboot your Pi can working as rubber ducky\n"
 	read -p "Did you will restart your Pi?\n $(echo $'\n yes \n no \n ')" choice
