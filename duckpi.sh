@@ -165,19 +165,21 @@ function convert() {
 		elif [[ "$1" == "\`" ]]; then
 			kbcode='backquote'
 		elif [[ "$1" == "~" ]]; then
-			kbcode='left-shift tilde'
+			kbcode='left-shift hash'
 		elif [[ "$1" == "+" ]]; then
-			kbcode='kp-plus'
+			kbcode='left-shift ='
 		elif [[ "$1" == "=" ]]; then
-			kbcode='equal'
+			kbcode='='
 		elif [[ "$1" == "_" ]]; then
 			kbcode='left-shift minus'
 		elif [[ "$1" == "-" ]]; then
-			kbcode='minus'
+			kbcode='-'
 		elif [[ "$1" == "\"" ]]; then
-			kbcode='left-shift quote'
+			kbcode='left-shift 2'
 		elif [[ "$1" == "'" ]]; then
 			kbcode='quote'
+		elif [[ "$1" == "¬" ]]; then
+			kbcode='left-shift backquote'	
 		elif [[ "$1" == ":" ]]; then
 			kbcode='left-shift semicolon'
 		elif [[ "$1" == ";" ]]; then
@@ -208,10 +210,12 @@ function convert() {
 			kbcode='lbracket'
 		elif [[ "$1" == "]" ]]; then
 			kbcode='rbracket'
-		elif [[ "$1" == "#" ]]; then
+		elif [[ "$1" == "£" ]]; then
 			kbcode='left-shift 3'
+		elif [[ "$1" == "#" ]]; then
+			kbcode='#'			
 		elif [[ "$1" == "@" ]]; then
-			kbcode='left-shift 2'
+			kbcode='right-alt q'
 		elif [[ "$1" == "$" ]]; then
 			kbcode='left-shift 4'
 		elif [[ "$1" == "%" ]]; then
