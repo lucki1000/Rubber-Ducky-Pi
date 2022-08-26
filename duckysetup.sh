@@ -1,47 +1,37 @@
 #!/bin/bash
 export work_dir="/opt/Raspberry-Rubber-Ducky-Pi"
 export usr="$USER"
-echo $1
+echo "$(date '+%Y-%m-%d %H:%M:%S'): ${work_dir}"  >> "${work_dir}/install.log"
+echo "$(date '+%Y-%m-%d %H:%M:%S'): ${usr}"  >> "${work_dir}/install.log"
+echo "$(date '+%Y-%m-%d %H:%M:%S'): ${1}"  >> "${work_dir}/install.log"
 echo "Running APT Update and install Vim & Git"
 sudo apt update > /dev/null 2>&1
 sudo apt install -y rpi-update vim git > /dev/null 2>&1
 
 ## dwc2 drivers
-sudo sed -i -e "\$adtoverlay=dwc2" /boot/config.txt
+sudo sed -i -e "\$adtoverlay=dwc2" /boot/config.txt  
 echo "dwc2" | sudo tee -a /etc/modules
 echo "libcomposite" | sudo tee -a /etc/modules
 
 ##Install git and download rspiducky
 #wget --no-check-certificate https://raw.githubusercontent.com/lucki1000/Raspberry-Rubber-Ducky-Pi/experimental/asynchron_writing.sh https://raw.githubusercontent.com/lucki1000/Raspberry-Rubber-Ducky-Pi/experimental/LICENSE https://raw.githubusercontent.com/lucki1000/Raspberry-Rubber-Ducky-Pi/experimental/duckpi.sh https://raw.githubusercontent.com/lucki1000/Raspberry-Rubber-Ducky-Pi/experimental/g_hid.ko https://raw.githubusercontent.com/lucki1000/Raspberry-Rubber-Ducky-Pi/experimental/hid-gadget-test.c https://raw.githubusercontent.com/lucki1000/Raspberry-Rubber-Ducky-Pi/experimental/hid_usb https://raw.githubusercontent.com/lucki1000/Raspberry-Rubber-Ducky-Pi/experimental/readme.md https://raw.githubusercontent.com/lucki1000/Raspberry-Rubber-Ducky-Pi/experimental/usleep https://raw.githubusercontent.com/lucki1000/Raspberry-Rubber-Ducky-Pi/experimental/usleep.c https://raw.githubusercontent.com/lucki1000/Raspberry-Rubber-Ducky-Pi/experimental/hid-gadget-test_german.c https://raw.githubusercontent.com/lucki1000/Raspberry-Rubber-Ducky-Pi/experimental/test.sh https://raw.githubusercontent.com/lucki1000/Raspberry-Rubber-Ducky-Pi/experimental/kernel_files_copie.sh > /dev/null 2>&1
-sudo git clone https://github.com/lucki1000/Raspberry-Rubber-Ducky-Pi.git ${work_dir}
+sudo git clone https://github.com/lucki1000/Raspberry-Rubber-Ducky-Pi.git ${work_dir}  
 sudo chown -R "$usr":"$usr" /opt/Raspberry-Rubber-Ducky-Pi/
 sleep 3
 
 kernel="$(uname -r)"
 
 
-if [ "$1" = "us" ] || [ "$1" = "uk" ]
-then
-	echo "Your actual kernel version is: ${kernel}"
-elif [[ $1 == "de" ]]
+if [[ "$1" = "de" ]]
 then
 	echo "Dein aktueller Kernel ist: ${kernel}"
+else
+	echo "Your actual kernel version is: ${kernel}"
+
 fi
 
-
-if [[ $1 == "de" ]]
-then
-	gcc "${work_dir}/hid-gadget-test_german.c" -o "${work_dir}/hid-gadget-test"
-	echo "DE DEBUG MESSAGE"
-elif [[ $1 == "us" ]]
-then
-	gcc "${work_dir}/hid-gadget-test.c" -o "${work_dir}/hid-gadget-test"
-	echo "US DEBUG MESSAGE"
-elif [[ $1 == "uk" ]]
-then
-	gcc "${work_dir}/hid-gadget-test_uk.c" -o "${work_dir}/hid-gadget-test"
-	echo "UK DEBUG MESSAGE"
-fi
+gcc "${work_dir}/hid-gadget-test_"${1}".c" -o "${work_dir}/hid-gadget-test"
+echo ""${1}" DEBUG MESSAGE"
 
 sleep 3
 
@@ -91,9 +81,8 @@ then
 	if [[ $choice == "ja" ]]
 	then
 		sudo reboot
-	fi
-elif [ "$1" = "us" ] || [ "$1" = "uk" ]
-then
+	fi	
+else
 	printf "First after a reboot your Pi can working as rubber ducky\n"
 	read -p "Did you will restart your Pi?\n $(echo $'\n yes \n no \n ')" choice
 	if [[ $choice == "yes" ]]
