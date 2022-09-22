@@ -139,6 +139,7 @@ static struct options kval[] = {
 	{.opt = "kp-0",			.val = 0x62},
 	{.opt = "kp-period",		.val = 0x63},
 	{.opt = "kp-stop",		.val = 0x63},
+	{.opt = "backslash",		.val = 0x64},
 	{.opt = "application",		.val = 0x65},
 	{.opt = "power",		.val = 0x66},
 	{.opt = "kp-equals",		.val = 0x67},
