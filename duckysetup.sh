@@ -73,18 +73,20 @@ ENTER"| sudo tee -a "${work_dir}/payload.txt"
 sudo cp "${work_dir}/rpi_ducky.sh" "/etc/profile.d/"
 
 #sed -i "s/\/pi\//\/$usr\//" "${work_dir}/duckpi.sh"
+#Disable autologin
+sudo mv /etc/systemd/system/getty@tty1.service.d/autologin.conf /etc/systemd/system/getty@tty1.service.d/autologin.conf.old
 
 if [[ $1 == "de" ]]
 then
 	printf "Erst nach einem Neustart funktioniert dein Pi als Rubber-Ducky\n"
-	read -p "Willst du dein Pi Neustarten?\n $(echo $'\n ja \n nein \n ')" choice
+	read -p "Möchtest du dein Pi Neustarten?\n $(echo $'\n ja \n nein \n ')" choice
 	if [[ $choice == "ja" ]]
 	then
 		sudo reboot
 	fi	
 else
 	printf "First after a reboot your Pi can working as rubber ducky\n"
-	read -p "Did you will restart your Pi?\n $(echo $'\n yes \n no \n ')" choice
+	read -p "Did you want to restart your Pi?\n $(echo $'\n yes \n no \n ')" choice
 	if [[ $choice == "yes" ]]
 	then
 		sudo reboot
