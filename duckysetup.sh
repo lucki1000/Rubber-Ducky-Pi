@@ -1,6 +1,8 @@
 #!/bin/bash
 export work_dir="/opt/Rubber-Ducky-Pi"
 export usr="$USER"
+sudo mkdir ${work_dir}
+sudo chown -R "$usr":"$usr" ${work_dir}
 echo "$(date '+%Y-%m-%d %H:%M:%S'): ${work_dir}"  >> "${work_dir}/install.log"
 echo "$(date '+%Y-%m-%d %H:%M:%S'): ${usr}"  >> "${work_dir}/install.log"
 echo "$(date '+%Y-%m-%d %H:%M:%S'): ${1}"  >> "${work_dir}/install.log"
@@ -16,8 +18,7 @@ echo "g_hid" |sudo tee -a /etc/modules
 
 ##Install git and download rspiducky
 #wget --no-check-certificate https://raw.githubusercontent.com/lucki1000/Raspberry-Rubber-Ducky-Pi/experimental/asynchron_writing.sh https://raw.githubusercontent.com/lucki1000/Raspberry-Rubber-Ducky-Pi/experimental/LICENSE https://raw.githubusercontent.com/lucki1000/Raspberry-Rubber-Ducky-Pi/experimental/duckpi.sh https://raw.githubusercontent.com/lucki1000/Raspberry-Rubber-Ducky-Pi/experimental/g_hid.ko https://raw.githubusercontent.com/lucki1000/Raspberry-Rubber-Ducky-Pi/experimental/hid-gadget-test.c https://raw.githubusercontent.com/lucki1000/Raspberry-Rubber-Ducky-Pi/experimental/hid_usb https://raw.githubusercontent.com/lucki1000/Raspberry-Rubber-Ducky-Pi/experimental/readme.md https://raw.githubusercontent.com/lucki1000/Raspberry-Rubber-Ducky-Pi/experimental/usleep https://raw.githubusercontent.com/lucki1000/Raspberry-Rubber-Ducky-Pi/experimental/usleep.c https://raw.githubusercontent.com/lucki1000/Raspberry-Rubber-Ducky-Pi/experimental/hid-gadget-test_german.c https://raw.githubusercontent.com/lucki1000/Raspberry-Rubber-Ducky-Pi/experimental/test.sh https://raw.githubusercontent.com/lucki1000/Raspberry-Rubber-Ducky-Pi/experimental/kernel_files_copie.sh > /dev/null 2>&1
-sudo git clone https://github.com/lucki1000/Rubber-Ducky-Pi.git ${work_dir}  
-sudo chown -R "$usr":"$usr" /opt/Rubber-Ducky-Pi/
+git clone https://github.com/lucki1000/Rubber-Ducky-Pi.git ${work_dir}  
 sleep 3
 
 kernel="$(uname -r)"
