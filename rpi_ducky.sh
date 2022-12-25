@@ -1,6 +1,6 @@
 #!/bin/bash
 #/etc/profile.d/rpi_ducky.sh
-source /opt/Raspberry-Rubber-Ducky-Pi/.vars
+source /opt/Rubber-Ducky-Pi/.vars
 if pidof -x "${work_dir}/asynchron_writing.sh" >/dev/null;
 then
     echo "Process already running"

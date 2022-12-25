@@ -74,12 +74,12 @@ layout=de
 ----
 
 ----
-wget https://raw.githubusercontent.com/lucki1000/Raspberry-Rubber-Ducky-Pi/experimental/duckysetup.sh
+wget https://raw.githubusercontent.com/lucki1000/Rubber-Ducky-Pi/experimental/duckysetup.sh
 ----
 
 or for oneliners (skip 4 and 5): 
 ----
-wget https://raw.githubusercontent.com/lucki1000/Raspberry-Rubber-Ducky-Pi/experimental/duckysetup.sh && chmod +x duckysetup.sh && ./duckysetup.sh $layout
+wget https://raw.githubusercontent.com/lucki1000/Rubber-Ducky-Pi/experimental/duckysetup.sh && chmod +x duckysetup.sh && ./duckysetup.sh $layout
 ----
 
 **4.** Make the script executable
@@ -106,7 +106,7 @@ chmod +x duckysetup.sh
 
 Follow step 1 - 5.
 
-Then edit `/opt/Raspberry-Rubber-Ducky-Pi/payload.txt` with your script.
+Then edit `/opt/Rubber-Ducky-Pi/payload.txt` with your script.
 
 After that reboot/shutdown your Zero and plug it into your target with the otg port.
 (Not the power port on the Pi)
@@ -119,7 +119,7 @@ If you wouldn't reboot every time, you can launch this:
 sudo duckpi.sh payload_file #any payload file who is readable like a .txt
 ....
 
-If you want to change your keyboard layout, you have to edit the .vars file in `/opt/Raspberry-Rubber-Ducky-Pi/.vars`
+If you want to change your keyboard layout, you have to edit the .vars file in `/opt/Rubber-Ducky-Pi/.vars`
 
 Actually supported Keyboards:
 

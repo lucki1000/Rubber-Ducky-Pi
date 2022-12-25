@@ -1,6 +1,6 @@
 #!/bin/bash
 first_shasum="1"
-source /opt/Raspberry-Rubber-Ducky-Pi/.vars
+source /opt/Rubber-Ducky-Pi/.vars
 shasum="$(shasum ${work_dir}/payload.txt)"
 while true;
 do

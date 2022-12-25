@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source /opt/Raspberry-Rubber-Ducky-Pi/.vars
+source /opt/Rubber-Ducky-Pi/.vars
 defdelay=0
 kb="/dev/hidg0 keyboard"
 last_cmd=""
