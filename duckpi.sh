@@ -171,13 +171,13 @@ function convert() {
 		elif [[ "$1" == "=" ]]; then
 			kbcode='='
 		elif [[ "$1" == "_" ]]; then
-			kbcode='left-shift minus'
+			kbcode='left-shift -'
 		elif [[ "$1" == "-" ]]; then
 			kbcode='-'
 		elif [[ "$1" == "\"" ]]; then
 			kbcode='left-shift 2'
 		elif [[ "$1" == "'" ]]; then
-			kbcode='quote'
+			kbcode="'"
 		elif [[ "$1" == "¬" ]]; then
 			kbcode='left-shift backquote'	
 		elif [[ "$1" == ":" ]]; then
@@ -215,7 +215,7 @@ function convert() {
 		elif [[ "$1" == "#" ]]; then
 			kbcode='#'			
 		elif [[ "$1" == "@" ]]; then
-			kbcode='right-alt q'
+			kbcode="left-shift '"
 		elif [[ "$1" == "$" ]]; then
 			kbcode='left-shift 4'
 		elif [[ "$1" == "%" ]]; then

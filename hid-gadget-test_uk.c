@@ -82,7 +82,7 @@ static struct options kval[] = {
 	{.opt = "hash",			.val = 0x32},
 	{.opt = "number",		.val = 0x32},
 	{.opt = "semicolon",		.val = 0x33},
-	{.opt = "quote",		.val = 0x34},
+	{.opt = "'",		.val = 0x34},
 	{.opt = "backquote",		.val = 0x35},
 	{.opt = "comma",		.val = 0x36},
 	{.opt = "period",		.val = 0x37},
