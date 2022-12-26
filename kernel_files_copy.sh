@@ -3,7 +3,7 @@
 kernel="$(uname -r)"
 source "/opt/Rubber-Ducky-Pi/.vars"
 cd "$work_dir"
-chmod 755 duckpi.sh  g_hid.ko usleep hid-gadget-test
+chmod 755 duckpi.sh g_hid.ko usleep hid-gadget-test
 
 \cp -r g_hid.ko /lib/modules/${kernel}/kernel/drivers/usb/gadget/legacy
 
