@@ -67,7 +67,7 @@ keyboard.
 
 **3.** Set environment variable to your Layout. 
 
-Currently supported de, us:
+Currently supported de, us, uk:
 [source,bash]
 ----
 layout=de
