@@ -15,5 +15,5 @@ do
     echo "Execute_00"
   fi
   first_shasum="$(shasum ${work_dir}/payload.txt)"
-  sleep 3
+  sleep "$interval"
 done
