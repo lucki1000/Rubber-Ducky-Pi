@@ -1,6 +1,9 @@
 #!/bin/bash
 export work_dir="/opt/Rubber-Ducky-Pi"
 export usr="$USER"
+export sn="$(cat /proc/cpuinfo | grep Serial | cut -d ' ' -f 2)"
+export mf="Raspberry Pi Foundation"
+export pd="rpi-zero"
 sudo mkdir ${work_dir}
 sudo chown -R "$usr":"$usr" ${work_dir}
 echo "$(date '+%Y-%m-%d %H:%M:%S'): ${work_dir}"  >> "$HOME/install.log"
@@ -46,15 +49,20 @@ echo "work_dir=${work_dir}" >> ${work_dir}/.vars
 echo "interval=3 #Means that interval for asynchron writing default value is 3 seconds" >> ${work_dir}/.vars
 
 # call other script
-arg=hello										# It doesn't has a reason why hello :)
-chmod +x "${work_dir}/kernel_files_copy.sh"		# make it executable
-sudo "${work_dir}/kernel_files_copy.sh" "$arg" 	# call script
+#arg=hello										# It doesn't has a reason why hello :)
+#chmod +x "${work_dir}/kernel_files_copy.sh"		# make it executable
+#sudo "${work_dir}/kernel_files_copy.sh" "$arg" 	# call script
 
 # continue with this script
 #touch Raspberry-Rubber-Ducky-Pi/payload.txt
 
 #
-
+cd "$work_dir"
+chmod 755 duckpi.sh usleep hid-gadget-test
+#GREP Serialnumber and write ProductID and Manufacturer into .vars 
+echo "serialnumber=$sn" >> "$work_dir/.vars"
+echo "manufacturer=$mf" >> "$work_dir/.vars"
+echo "product=$pd" >> "$work_dir/.vars"
 #copy duckpi.sh to /usr/sbin/
 sudo cp "${work_dir}/duckpi.sh" "/usr/sbin/"
 sudo cp -r "${work_dir}/hid_usb" "/usr/bin/hid_usb"
@@ -81,6 +89,7 @@ sudo cp "${work_dir}/rpi_ducky.sh" "/etc/profile.d/"
 #sudo mv /etc/systemd/system/getty@tty1.service.d/autologin.conf /etc/systemd/system/getty@tty1.service.d/autologin.conf.old
 #clean version to disable autologin
 sudo raspi-config nonint do_boot_behaviour B1
+
 
 if [[ $1 == "de" ]]
 then
