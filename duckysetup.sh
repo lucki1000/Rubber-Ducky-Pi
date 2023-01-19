@@ -4,6 +4,12 @@ export usr="$USER"
 export sn="$(cat /proc/cpuinfo | grep Serial | cut -d ' ' -f 2)"
 export mf="\"Raspberry Pi Foundation\""
 export pd="rpi-zero"
+export idV="0x1d6b"
+export idP="0x0104"
+export bcdD="0x0100"
+export bcdU="0x0200"
+
+
 sudo mkdir ${work_dir}
 sudo chown -R "$usr":"$usr" ${work_dir}
 echo "$(date '+%Y-%m-%d %H:%M:%S'): ${work_dir}"  >> "$HOME/install.log"
@@ -63,6 +69,12 @@ chmod 755 duckpi.sh usleep hid-gadget-test
 echo "serialnumber=$sn" >> "$work_dir/.vars"
 echo "manufacturer=$mf" >> "$work_dir/.vars"
 echo "product=$pd" >> "$work_dir/.vars"
+echo "idVendor=$idV" >> "$work_dir/.vars"
+echo "idProduct=$idP" >> "$work_dir/.vars"
+echo "bcdDevice=$bcdD" >> "$work_dir/.vars"
+echo "bcdUSB=$bcdU" >> "$work_dir/.vars"
+
+
 #copy duckpi.sh to /usr/sbin/
 sudo cp "${work_dir}/duckpi.sh" "/usr/sbin/"
 sudo cp -r "${work_dir}/hid_usb" "/usr/bin/hid_usb"
