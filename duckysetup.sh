@@ -46,9 +46,11 @@ echo "work_dir=${work_dir}" >> ${work_dir}/.vars
 echo "interval=3 #Means that interval for asynchron writing default value is 3 seconds" >> ${work_dir}/.vars
 
 # call other script
-arg=hello										# It doesn't has a reason why hello :)
-chmod +x "${work_dir}/kernel_files_copy.sh"		# make it executable
-sudo "${work_dir}/kernel_files_copy.sh" "$arg" 	# call script
+#arg=hello										# It doesn't has a reason why hello :)
+#chmod +x "${work_dir}/kernel_files_copy.sh"		# make it executable
+#sudo "${work_dir}/kernel_files_copy.sh" "$arg" 	# call script
+cd "$work_dir"
+chmod 755 duckpi.sh usleep hid-gadget-test
 
 # continue with this script
 #touch Raspberry-Rubber-Ducky-Pi/payload.txt
