@@ -2,7 +2,7 @@
 export work_dir="/opt/Rubber-Ducky-Pi"
 export usr="$USER"
 export sn="$(cat /proc/cpuinfo | grep Serial | cut -d ' ' -f 2)"
-export mf="Raspberry Pi Foundation"
+export mf="\"Raspberry Pi Foundation\""
 export pd="rpi-zero"
 sudo mkdir ${work_dir}
 sudo chown -R "$usr":"$usr" ${work_dir}
