@@ -3,10 +3,10 @@ source "/opt/Rubber-Ducky-Pi/.vars"
 cd /sys/kernel/config/usb_gadget/
 mkdir -p hid_usb
 cd hid_usb
-echo 0x1d6b > idVendor # Linux Foundation
-echo 0x0104 > idProduct # Multifunction Composite Gadget
-echo 0x0100 > bcdDevice # v1.0.0
-echo 0x0200 > bcdUSB # USB2
+echo $idVendor > idVendor # Linux Foundation
+echo $idProduct > idProduct # Multifunction Composite Gadget
+echo $bcdDevice > bcdDevice # v1.0.0
+echo $bcdUSB > bcdUSB # USB2
 mkdir -p strings/0x409
 echo "$serialnumber" > strings/0x409/serialnumber
 echo "$manufacturer" > strings/0x409/manufacturer
