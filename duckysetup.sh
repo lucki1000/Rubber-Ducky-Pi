@@ -66,10 +66,10 @@ func_compile_hid_gadget () {
 func_make_needed_executable () {
 	# make script executable 
 	cd "$work_dir"
-	chmod +x "${work_dir}/asynchron_writing.sh"
-	chmod +x "${work_dir}/hid_usb"
-	chmod +x "${work_dir}/rpi_ducky.sh"
-	chmod 755 duckpi.sh usleep hid-gadget-test #Testing
+	chmod +x "asynchron_writing.sh" "usleep" "hid-gadget-test"
+	sudo chmod +x "/usr/bin/hid_usb"
+	sudo chmod +x "/etc/profile.d/rpi_ducky.sh"
+	sudo chmod +x /usr/sbin/duckpi.sh
 } >> "${work_dir}/install.log" 
 
 func_cp_stuff () {
@@ -136,10 +136,10 @@ echo "Check your current Kernel" |& tee -a "$work_dir/install.log"
 func_kernel_check
 echo "Compile hid gadget" |& tee -a "$work_dir/install.log"
 func_compile_hid_gadget
-echo "Make scripts executable" |& tee -a "$work_dir/install.log"
-func_make_needed_executable
 echo "Copy necessary files" |& tee -a "$work_dir/install.log"
 func_cp_stuff
+echo "Make scripts executable" |& tee -a "$work_dir/install.log"
+func_make_needed_executable
 echo "Run hid_usb on any startup" |& tee -a "$work_dir/install.log"
 func_modify_startup_script
 echo "Create first Payload" |& tee -a "$work_dir/install.log"
