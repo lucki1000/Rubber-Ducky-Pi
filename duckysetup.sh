@@ -66,7 +66,8 @@ func_compile_hid_gadget () {
 func_make_needed_executable () {
 	# make script executable 
 	chmod +x "${work_dir}/asynchron_writing.sh"
-	sudo chmod +x /usr/bin/hid_usb
+	chmod +x "${work_dir}/hid_usb"
+	chmod +x "${work_dir}/rpi_ducky.sh"
 	#cd "$work_dir" #Testing
 	#chmod 755 duckpi.sh usleep hid-gadget-test #Testing
 } >> "${work_dir}/install.log" 
