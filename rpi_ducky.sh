@@ -8,5 +8,3 @@ else
 	"${work_dir}/asynchron_writing.sh" "$layout" &>/dev/null &
 fi
 vim "${work_dir}/payload.txt"
-pid=$(pidof -x "${work_dir}"/asynchron_writing.sh)
-sudo kill "$pid"
